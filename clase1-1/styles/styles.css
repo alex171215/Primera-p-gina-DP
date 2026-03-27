@@ -5,4 +5,20 @@ skip-link{position:absolute;left:-999px;top:-999px;}
 skip-link:focus{position:static;background: #eee;padding:.5rem;}
 nav-ul{list-style:none;padding:0;display:flex;gap:1rem;}
 a.focus{outline:3px solid #000;}
-img{padding:.5rem;}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  padding: .5rem;
+}
+
+/*Visualiza estados antivos sin JS*/
+input:required:invalid, select:required:invalid {border:2px solid #c00;}
+input:required:valid, select:required:valid {border:2px solid #0c0;}
+
+/*Foco visible para navegación por teclado*/
+:focus-visible{outline: 3px solid #000; outline-offset: 2px;}
+
+/*Enlaces para saltar al contenido principal (accesibilidad global)*/
+.skiplink {position:absolute; left: 999px;top: 99px;}
+.skiplink:focus {position: static; background: #eee; padding: .5rem;}
