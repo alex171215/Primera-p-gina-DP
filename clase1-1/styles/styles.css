@@ -1,0 +1,8 @@
+*{box-sizing: border-box;}
+body{font-family: system-ui,sans-serif;line-height:1.5;margin:0;}
+header,main,footer{padding:1em;}
+skip-link{position:absolute;left:-999px;top:-999px;}
+skip-link:focus{position:static;background: #eee;padding:.5rem;}
+nav-ul{list-style:none;padding:0;display:flex;gap:1rem;}
+a.focus{outline:3px solid #000;}
+img{padding:.5rem;}

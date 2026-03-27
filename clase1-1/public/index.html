@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Descripción para SEO-->
+    <meta name="description" content="Esqueleto semántico y accesible para el curso Desarrollo de Plataformas">
+    <title>Base - Sistema de Gestión de Procesos</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header>
+        <h1>Sistema de Gestión de Procesos</h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="#" aria-current="page">Inicio</a></li>
+                <li><a href="#modulos">Módulos</a></li>
+                <li><a href="#accesibilidad">Accesibilidad</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="contenido">
+        <section aria-labelledby="sec-intro">
+            <h2 id="sec-intro">Introducción</h2>
+            <p>Este es el esqueleto base para el proyecto del curso. Prioriza semántica y accesibilidad</p>
+        </section>
+        
+        <section id="módulos" aria-labelledby="sec-modulos">
+            <h2 id="sec-modulos">Módulos</h2>
+            <article aria-labelledby="art-turnos">
+                <h3 id="art-turnos">Módulo: Gestión de Turnos</h3>
+                <p>Contenido placeholder. Aquí, más adelante, se integrará cliente-servidor</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Entorno</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Úlrima revisión</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Producción</th>
+                            <td>Operativo Parcial</td>
+                            <td>2025-09-21</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <figure>
+                    <img id="escuela" src="../assets/images/escuela.jpg" alt="ESCUELA">
+                    <figcaption>Figura 1: Vista general de la escuela</figcaption>
+                </figure>
+            </article>
+            <aside aria-label="información complementaria">
+                <p>Nota: Mantén una jerarquía de encabezados coherente (h1→h2→h3) </p>
+            </aside>    
+
+        </section>
+        <section id="accesibilidad" aria-labelledby="sec-a11y">
+            <h2 id="sec-a11y">Accesibilidad</h2>
+            <p role="note" aria-live="polite">Recuerda: texto alternativo en imágenes y formularios etiquetados.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;2025. Curso de Desarrollo de Plataformas</p>
+    </footer>
+</body>
+</html>
