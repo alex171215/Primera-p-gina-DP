@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Registro de Cuenta — Semana 2 (Hotfix)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Formulario accesible con validación nativa y personalizada."
+/>
+<link rel="stylesheet" href="../styles/styles.css" />
+</head>
+<body>
+<!-- Skip link para teclado/lectores -->
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header>
+<h1>Plataforma Académica</h1>
+<nav aria-label="Principal">
+<ul>
+<li><a href="#" aria-current="page">Inicio</a></li>
+<li><a href="#formulario">Registro</a></li>
+</ul>
+</nav>
+</header>
+<main id="contenido">
+<!-- Resumen de errores (JS lo rellena si hace falta) -->
+<section aria-labelledby="t-resumen" class="visually-group" id="resumen-seccion">
+<h2 id="t-resumen">Resumen de errores</h2>
+<div id="form-summary" role="alert" aria-live="polite"></div>
+</section>
+<section id="formulario" aria-labelledby="t-form">
+<h2 id="t-form">Registro de cuenta</h2>
+<!-- Usamos novalidate para controlar mensajes,
+pero dejamos atributos nativos en el resto de campos -->
+<form id="f-registro" novalidate aria-describedby="ayuda-general">
+<p id="ayuda-general">Completa los campos obligatorios. Navega con Tab y Enter.</p>
+<!-- Datos personales -->
+<fieldset>
+<legend>Datos personales</legend>
+<label for="nombre">Nombre</label>
+<input id="nombre" name="nombre" type="text" required minlength="2"
+autocomplete="given-name" aria-describedby="hint-nombre nombre-err">
+<small id="hint-nombre">Tal como figura en tu documento (mínimo 2 caracteres).</small>
+<span id="nombre-err" class="error" role="alert" hidden></span>
+<label for="apellidos">Apellidos</label>
+<input id="apellidos" name="apellidos" type="text" required minlength="2"
+autocomplete="family-name" aria-describedby="hint-apellidos apellidos-err">
+<small id="hint-apellidos">Mínimo 2 caracteres.</small>
+<span id="apellidos-err" class="error" role="alert" hidden></span>
+<label for="email">Correo institucional</label>
+<input id="email" name="email" type="email" required
+autocomplete="email" aria-describedby="hint-email email-status email-err">
+<small id="hint-email">Formato: usuario@dominio.</small>
+<!-- Estado no intrusivo (validación asíncrona simulada) -->
+<small id="email-status" role="status" aria-live="polite"></small>
+<span id="email-err" class="error" role="alert" hidden></span>
+<label for="tel">Teléfono</label>
+<input id="tel" name="tel" type="tel" inputmode="tel"
+autocomplete="tel" aria-describedby="hint-tel">
+<small id="hint-tel">Incluye código de área si aplica.</small>
+</fieldset>
+<!-- Acceso -->
+<fieldset>
+<legend>Acceso</legend>
+<label for="pass">Contraseña</label>
+<!-- SIN minlength: la longitud se valida en JS -->
+<input id="pass" name="pass" type="password" required
+aria-describedby="hint-pass pass-err pass-strength-text">
+<small id="hint-pass">Mínimo 8 caracteres. Combina mayúsculas, números y
+símbolos.</small>
+<progress id="pass-strength" value="0" max="4" aria-hidden="true"></progress>
+<small id="pass-strength-text" role="status" aria-live="polite"></small>
+<span id="pass-err" class="error" role="alert" hidden></span>
+<label for="pass2">Confirmar contraseña</label>
+<input id="pass2" name="pass2" type="password" required
+aria-describedby="pass2-err">
+<span id="pass2-err" class="error" role="alert" hidden></span>
+</fieldset>
+<!-- Preferencias -->
+<fieldset>
+<legend>Preferencias</legend>
+<label><input type="radio" name="contacto" value="correo" checked> Contacto por
+correo</label>
+<label><input type="radio" name="contacto" value="telefono"> Contacto por
+teléfono</label>
+<label><input type="checkbox" id="news" name="news" value="si"> Deseo recibir
+boletines</label>
+</fieldset>
+<!-- Aceptación -->
+<fieldset>
+<legend>Condiciones</legend>
+<label>
+<input type="checkbox" id="acepto" name="acepto" required aria-describedby="aceptoerr">
+Acepto términos y condiciones
+</label>
+<span id="acepto-err" class="error" role="alert" hidden></span>
+</fieldset>
+<button type="submit">Crear cuenta</button>
+</form>
+</section>
+</main>
+<footer>
+<p>© 2025. Curso Desarrollo en Plataformas.</p>
+</footer>
+<!-- cache-busting para evitar JS viejo en caché -->
+<script src="../scripts/app.js?v=hotfix5"></script>
+</body>
+</html>

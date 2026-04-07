@@ -1,0 +1,35 @@
+/* Base y foco visible */
+* { box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.5;
+margin: 0; }
+header, main, footer { padding: 1rem; }
+:focus-visible { outline: 3px solid #000; outline-offset: 2px; }
+/* Skip link accesible */
+.skip-link { position: absolute; left: -999px; top: -999px; }
+.skip-link:focus { position: static; background:#eee; padding:.5rem; }
+/* Navegación simple */
+nav ul { list-style: none; padding: 0; display: flex; gap: 1rem; }
+/* Formulario */
+form { max-width: 780px; }
+fieldset { border: 1px solid #ddd; padding: 1rem; margin-bottom: 1rem; border-radius: .5rem; }
+legend { font-weight: 600; }
+label { display: block; margin-top: .75rem; }
+input, select, textarea { width: 100%; padding: .6rem; margin-top: .25rem; border-radius: .4rem;
+border: 1px solid #bbb; }
+button { margin-top: 1rem; padding: .7rem 1rem; border-radius: .5rem; border: 1px solid #333;
+background: #fff; cursor: pointer; }
+/* Estados nativos (siguen aplicando a otros campos) */
+input:required:invalid, select:required:invalid { border-color: #c00; }
+input:required:valid, select:required:valid { border-color: #0a0; }
+/* Mensajes */
+.error[hidden] { display: none; }
+.error { color: #a40000; margin-top: .25rem; }
+/* Resumen de errores */
+.visually-group { margin-bottom: 1rem; }
+#form-summary p { margin: 0 0 .25rem 0; }
+#form-summary ul { margin: .25rem 0 0 1rem; }
+#form-summary a { text-decoration: underline; }
+/* Accesibilidad visual extra */
+@media (prefers-reduced-motion: reduce){
+* { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
