@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Semana 3 · Ejercicio 2 — Flexbox + Grid (mobile-first)</title>
+  <style>
+    /* Reset + box model */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Tipografía base */
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.5; color: #111; background: #fff;
+    }
+
+    /* Tokens */
+    :root{
+      --space-1: .5rem; --space-2: 1rem; --space-3: 1.5rem; --space-4: 2rem;
+      --maxw: 72rem; --border: 1px solid #e5e7eb;
+    }
+    .wrap { max-width: var(--maxw); margin-inline: auto; padding: var(--space-2); }
+
+    /* ====== Header con Flexbox (alineación en 1 eje) ====== */
+    header { border-bottom: var(--border); }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--space-2); padding: var(--space-2) 0;
+    }
+    .brand { font-weight: 700; font-size: 1.125rem; }
+    nav a { text-decoration: none; color: #0366d6; margin-left: 1rem; }
+
+    /* ====== Card con Grid (macro) — por ahora 1 columna ====== */
+    .card {
+      display: grid;       /* activamos grid */
+      gap: var(--space-2); /* separación entre celdas */
+      background: #fff; border: var(--border); border-radius: .5rem;
+      padding: var(--space-3); margin-block: var(--space-3);
+    }
+    .card h1 { font-size: clamp(1.5rem, 2.5vw, 2.25rem); }
+    .card img { max-width: 100%; height: auto; border-radius: .5rem; border: var(--border); }
+
+    /* ====== Features con Grid (macro) — 1 columna por ahora ====== */
+    .features { display: grid; gap: var(--space-2); margin-block: var(--space-3); }
+    .feature {
+      background: #f9fafb; border: var(--border); border-radius: .5rem;
+      padding: var(--space-3); text-align: center; font-weight: 600;
+    }
+
+    /* Pie */
+    footer { border-top: var(--border); text-align: center; padding: var(--space-2) 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap header-inner">
+      <div class="brand">MiSitio</div>
+      <nav aria-label="principal">
+        <a href="#">Inicio</a>
+        <a href="#">Blog</a>
+        <a href="#">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article class="card">
+      <!-- En móvil: 1 columna (texto sobre imagen) -->
+      <div class="card-text">
+        <h1>Bienvenido</h1>
+        <p>Ahora combinamos <strong>Flexbox</strong> (en el header) y <strong>Grid</strong> (en esta tarjeta y en features), todavía sin Media Queries.</p>
+      </div>
+      <img src="https://picsum.photos/800/400" alt="Imagen ilustrativa aleatoria">
+    </article>
+
+    <section class="features" aria-label="Módulos">
+      <article class="feature">Módulo A</article>
+      <article class="feature">Módulo B</article>
+      <article class="feature">Módulo C</article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap"><small>© 2025 — Ejercicio 2 (Flexbox + Grid, sin MQ)</small></div>
+  </footer>
+</body>
+</html>

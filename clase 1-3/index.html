@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Semana 3 · Ejercicio 1 — Box Model + Tipografía fluida</title>
+  <style>
+    /* ====== Reset mínimo + Box Model coherente ====== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ====== Tipografía base ====== */
+    html { font-size: 100%; } /* 16px por defecto en la mayoría de navegadores */
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.5;
+      color: #111;
+      background: #fff;
+    }
+
+    /* ====== Tokens simples (espacios y contenedor) ====== */
+    :root{
+      --space-1: .5rem; --space-2: 1rem; --space-3: 1.5rem; --space-4: 2rem;
+      --maxw: 64rem; /* ~1024px */
+      --border: 1px solid #e5e7eb;
+    }
+    .wrap { max-width: var(--maxw); margin-inline: auto; padding: var(--space-2); }
+
+    /* ====== Encabezado (sin flex aún) ====== */
+    header { border-bottom: var(--border); padding: var(--space-2) 0; }
+    .brand { font-weight: 700; font-size: 1.125rem; margin-bottom: .25rem; }
+    nav a {
+      display: inline-block;
+      text-decoration: none;
+      color: #0366d6;
+      margin-right: 1rem;
+      padding: .25rem 0;
+    }
+
+    /* ====== Card principal (en columna) ====== */
+    .card {
+      background: #fff;
+      border: var(--border);
+      border-radius: .5rem;
+      padding: var(--space-3);
+      margin-block: var(--space-3);
+      /* Box Model aplicado: padding para que "respire" internamente */
+    }
+    .card h1 { 
+      /* Tipografía fluida: mínimo 1.5rem, máximo 2.25rem, zona fluida 2.5vw */
+      font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+      margin-bottom: .5rem;
+    }
+    .card p { margin-bottom: var(--space-2); }
+    .card img {
+      /* Medios fluidos: nunca sobrepasan el ancho de su contenedor */
+      max-width: 100%; height: auto; border-radius: .5rem; border: var(--border);
+    }
+
+    /* ====== Features (bloques apilados por ahora) ====== */
+    .features { margin-block: var(--space-3); }
+    .feature {
+      background: #f9fafb;
+      border: var(--border);
+      border-radius: .5rem;
+      padding: var(--space-3);
+      font-weight: 600;
+      text-align: center;
+      /* Márgenes externos: separa esta caja de la siguiente (Box Model) */
+      margin-bottom: var(--space-2);
+    }
+
+    /* ====== Pie ====== */
+    footer { border-top: var(--border); text-align: center; padding: var(--space-2) 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="brand">MiSitio</div>
+      <nav aria-label="principal">
+        <a href="#">Inicio</a>
+        <a href="#">Blog</a>
+        <a href="#">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article class="card">
+      <h1>Bienvenido</h1>
+      <p>Este es el contenido principal. Aquí practicamos <strong>Box Model</strong> (padding, border, margin) y <strong>tipografía fluida</strong> con <code>clamp()</code>.</p>
+      <img src="https://picsum.photos/800/400" alt="Imagen ilustrativa aleatoria">
+    </article>
+
+    <section class="features" aria-label="Módulos">
+      <article class="feature">Módulo A</article>
+      <article class="feature">Módulo B</article>
+      <article class="feature">Módulo C</article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap"><small>© 2025 — Ejercicio 1 (CSS puro sin Flex/Grid)</small></div>
+  </footer>
+</body>
+</html>
