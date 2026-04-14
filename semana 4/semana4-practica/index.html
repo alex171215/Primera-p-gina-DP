@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+ <!-- Codificación estándar -->
+ <meta charset="utf-8" />
+ <!-- Viewport responsable del escalado en móviles -->
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Semana 4 · Práctica ES6+, Promesas y Errores</title>
+ <!-- Hoja de estilos principal -->
+ <link rel="stylesheet" href="./styles.css" />
+ <!-- Respeta modo claro/oscuro del sistema -->
+ <meta name="color-scheme" content="light dark">
+</head>
+<body>
+ <!-- Encabezado del sitio -->
+ <header class="site-header" role="banner">
+ <div class="container">
+ <h1>Práctica – Semana 4</h1>
+ <p class="subtitle">ES6+ · Promesas · async/await · Manejo de errores</p>
+ </div>
+ </header>
+ <!-- Contenido principal -->
+ <main class="container" role="main">
+ <!-- Bloque A: Formulario con validación en cliente -->
+ <section class="card" aria-labelledby="form-title">
+ <h2 id="form-title">A. Validación de formulario</h2>
+ <p>Ingresa tus datos y valida en cliente (sin enviar al servidor).</p>
+ <!-- novalidate desactiva validación HTML nativa para controlar mensajes -->
+ <form id="user-form" novalidate>
+ <!-- Campo: nombre -->
+ <div class="field">
+ <label for="name">Nombre <span aria-hidden="true">*</span></label>
+ <input id="name" name="name" type="text" placeholder="Tu nombre" required />
+ <!-- Contenedor para error accesible del campo nombre -->
+ <small class="error" data-error-for="name" aria-live="polite"></small>
+ </div>
+ <!-- Campo: email -->
+ <div class="field">
+ <label for="email">Email <span aria-hidden="true">*</span></label>
+ <input id="email" name="email" type="email" placeholder="tucorreo@ejemplo.com"
+required />
+ <!-- Contenedor para error accesible del campo email -->
+ <small class="error" data-error-for="email" aria-live="polite"></small>
+ </div>
+ <!-- Acciones del formulario -->
+ <div class="actions">
+ <button type="submit" class="btn">Validar</button>
+ <button type="reset" class="btn btn-secondary">Limpiar</button>
+ </div>
+ <!-- Mensaje global del formulario (éxito/fracaso) -->
+ <div class="feedback" id="form-feedback" aria-live="polite"></div>
+ </form>
+ </section>
+ <!-- Bloque B: Carga de datos (API vs mock local) -->
+ <section class="card" aria-labelledby="api-title">
+ <h2 id="api-title">B. Carga de usuarios (Fetch + async/await)</h2>
+ <p>Puedes alternar entre una API pública y un <em>mock</em> local.</p>
+ <div class="stack">
+ <!-- Toggle que cambia la fuente de datos -->
+ <label class="toggle">
+ <input type="checkbox" id="use-mock" />
+ <span>Usar <strong>mock local</strong> (./js/mock/users.json)</span>
+ </label>
+ <!-- Botones de acción para cargar o forzar error -->
+ <div class="actions">
+ <button id="btn-load" class="btn">Cargar usuarios</button>
+ <button id="btn-load-error" class="btn btn-danger">Probar error</button>
+ </div>
+ <!-- Estado textual (cargando/ok/error) -->
+ <div id="status" class="status" aria-live="polite"></div>
+ <!-- Listado de usuarios renderizados -->
+ <ul id="users" class="users" aria-live="polite"></ul>
+ </div>
+ </section>
+ <!-- Bloque C: Consola/registro simple en UI -->
+ <section class="card" aria-labelledby="log-title">
+ <h2 id="log-title">C. Registro de eventos y errores</h2>
+ <pre id="logs" class="logs" aria-live="polite"></pre>
+ </section>
+ </main>
+ <!-- Pie de página -->
+ <footer class="site-footer" role="contentinfo">
+ <div class="container">
+ <small>© 2025 — Semana 4 · ES6+, Promesas y Errores</small>
+ </div>
+ </footer>
+ <!-- Punto de entrada JS. type="module" habilita import/export -->
+ <script type="module" src="./js/app.js"></script>
+</body>
+</html>

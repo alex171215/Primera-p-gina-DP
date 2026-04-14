@@ -1,0 +1,68 @@
+/* Box-model coherente en toda la app */
+* { box-sizing: border-box; }
+/* Tokens de diseño: espacios, color y énfasis */
+:root{
+ --space-1:.5rem; --space-2:1rem; --space-3:1.5rem; --space-4:2rem;
+ --border:#e5e7eb; --text:#111; --muted:#6b7280;
+ --brand:#2563eb; --ok:#16a34a; --warn:#ca8a04; --err:#dc2626;
+}
+/* Tamaño base de fuente (accesible) */
+html { font-size: 100%; }
+/* Tipografía y colores base */
+body {
+ margin: 0;
+ font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+ line-height: 1.5;
+ color: var(--text);
+}
+/* Contenedor centralizado y con padding */
+.container { max-width: 72rem; margin-inline:auto; padding: var(--space-2); }
+/* Separadores superior/inferior del sitio */
+.site-header, .site-footer { border-block:1px solid var(--border); }
+.subtitle { color: var(--muted); margin-top: .25rem; }
+/* Tarjetas visuales para agrupar secciones */
+.card {
+ border:1px solid var(--border);
+ border-radius:.75rem;
+ padding: var(--space-3);
+ margin-block: var(--space-3);
+ background: #fff;
+}
+/* Campos de formulario */
+.field { margin-bottom: var(--space-2); }
+.field label { display:block; font-weight:600; margin-bottom:.25rem; }
+.field input {
+ width:100%; padding:.6rem .75rem;
+ border:1px solid var(--border); border-radius:.5rem;
+}
+/* Línea reservada para el mensaje de error por campo */
+.error { color: var(--err); min-height: 1lh; display:block; margin-top:.25rem; }
+/* Grupo de botones responsivo */
+.actions { display:flex; gap:.5rem; flex-wrap:wrap; margin-top: .5rem; }
+.btn { background: var(--brand); color:#fff; border:0; padding:.6rem .9rem; borderradius:.5rem; cursor:pointer; }
+.btn-secondary { background: #6b7280; }
+.btn-danger { background: var(--err); }
+/* Layout vertical simple para el bloque API */
+.stack { display:grid; gap: var(--space-2); }
+.toggle { display:flex; align-items:center; gap:.5rem; }
+/* Estados coloreados para feedback textual */
+.status { min-height:1lh; color: var(--muted); }
+.status.loading { color: var(--warn); }
+.status.success { color: var(--ok); }
+.status.error { color: var(--err); }
+/* Lista de usuarios renderizados */
+.users { list-style:none; padding:0; margin:0; display:grid; gap:.5rem; }
+.users li { border:1px solid var(--border); border-radius:.5rem; padding:.6rem .75rem; }
+/* Consola de logs simple */
+.logs {
+ background:#0b1020; color:#c7d2fe; padding: var(--space-2);
+ border-radius:.5rem; min-height: 8rem; overflow:auto;
+}
+/* Tema oscuro: respeta preferencia del sistema */
+@media (prefers-color-scheme: dark) {
+ body { color:#e5e7eb; background:#0f172a; }
+ .card { background:#0b1224; border-color:#1f2a44; }
+ .site-header,.site-footer { border-color:#1f2a44; }
+ .field input { background:#0b1224; color:#e5e7eb; border-color:#1f2a44; }
+ .users li { border-color:#1f2a44; }
+}
